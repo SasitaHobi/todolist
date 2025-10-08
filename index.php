@@ -58,9 +58,9 @@ if (isset($_POST['action'])) {
     case 'delete':
 
       $id = $_POST['id'];
-      if (is_numeric($id)) {
-        $deleteQuery = ''; // IMPLEMENT ME
-        if (!$db->query($deleteQuery)) {
+      if(is_numeric($id)) {
+        $deleteQuery = "DELETE FROM todo WHERE id = $id";
+        if(!$db->query($deleteQuery)) {
           die(print_r($db->errorInfo(), true));
         }
       }
